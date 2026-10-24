@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juwita Pasoloran | Portofolio Pribadi</title>
+    <meta name="description" content="Portofolio pribadi Juwita Pasoloran, mahasiswa Informatika yang tertarik pada teknologi informasi dan pengembangan website.">
+
+    <style>
+        :root {
+            --background: #0b1220;
+            --surface: #111e31;
+            --surface-light: #172940;
+            --navy: #0b1220;
+            --blue: #38bdf8;
+            --cyan: #7dd3fc;
+            --text: #edf4fc;
+            --muted: #a7b6ca;
+            --border: #293c54;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGASI */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 18, 32, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            color: var(--text);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.94rem;
+            font-weight: 600;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: var(--text);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* BERANDA */
+        .hero {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.13), transparent 30%),
+                linear-gradient(135deg, #0b1220, #14243a);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--cyan);
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            background: rgba(56, 189, 248, 0.07);
+            border-radius: 30px;
+            padding: 7px 15px;
+            font-size: 0.85rem;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            color: #c1cddd;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 23px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .button-primary {
+            background: var(--blue);
+            color: #071321;
+        }
+
+        .button-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            color: var(--text);
+            border: 1px solid #52647b;
+        }
+
+        .button-outline:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .profile-frame {
+            width: min(100%, 320px);
+            aspect-ratio: 4 / 5;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid #344b65;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.035);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .profile-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 17px;
+            background: var(--surface-light);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 17px;
+            background: linear-gradient(145deg, #203a59, #14243a);
+            color: var(--cyan);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .photo-placeholder strong {
+            font-size: 4rem;
+            line-height: 1.2;
+        }
+
+        .photo-placeholder span {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* BAGIAN UMUM */
+        section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--blue);
+            font-weight: 800;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            color: var(--text);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* TENTANG SAYA */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: var(--text);
+            font-size: 1.45rem;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .info-card h3 {
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 15px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row strong {
+            flex: 0 0 125px;
+            color: var(--cyan);
+            font-size: 0.93rem;
+        }
+
+        .info-row span {
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        /* MINAT */
+        .interest-section {
+            background: #0e192a;
+            border-top: 1px solid #182940;
+            border-bottom: 1px solid #182940;
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .interest-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px 25px;
+            transition: transform 0.25s, border-color 0.25s,
+                        box-shadow 0.25s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            border-color: #3d7599;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .interest-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #203a59;
+            border: 1px solid #2d4d6b;
+            border-radius: 13px;
+            color: var(--cyan);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .interest-card h3 {
+            color: var(--text);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .interest-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* TUJUAN PORTOFOLIO */
+        .purpose-box {
+            background: linear-gradient(135deg, #14243a, #111e31);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 35px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .purpose-mark {
+            flex-shrink: 0;
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: #203a59;
+            border: 1px solid #2d4d6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            font-size: 1.6rem;
+        }
+
+        .purpose-box h3 {
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .purpose-box p {
+            color: var(--muted);
+        }
+
+        /* KONTAK */
+        .contact-section {
+            background:
+                radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.09), transparent 45%),
+                #101b2d;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .contact-section .section-heading h2 {
+            color: var(--text);
+        }
+
+        .contact-section .section-heading p {
+            color: var(--muted);
+        }
+
+        .email-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 16px 23px;
+            border: 1px solid #35516d;
+            border-radius: 10px;
+            color: var(--cyan);
+            background: var(--surface);
+            overflow-wrap: anywhere;
+            transition: background 0.25s, border-color 0.25s;
+        }
+
+        .email-card:hover {
+            background: var(--surface-light);
+            border-color: var(--blue);
+        }
+
+        .email-note {
+            margin-top: 15px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #080e19;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            padding: 22px 0;
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--cyan);
+        }
+
+        /* ANIMASI */
+        .fade-in {
+            animation: fadeIn 0.8s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIF */
+        @media (max-width: 800px) {
+            .hero {
+                padding: 75px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-frame {
+                width: min(75%, 280px);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interest-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 68px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                padding: 20px 5%;
+                background: #0b1220;
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 17px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .info-card {
+                padding: 22px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .purpose-box {
+                padding: 25px;
+                flex-direction: column;
+            }
+
+            .email-card {
+                max-width: 100%;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <nav class="navbar container">
+            <a href="#beranda" class="logo">JUWITA<span>.</span></a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Buka menu navigasi"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang Saya</a></li>
+                <li><a href="#minat">Minat</a></li>
+                <li><a href="#tujuan">Tujuan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BERANDA -->
+        <section class="hero" id="beranda">
+            <div class="container hero-content">
+
+                <div class="hero-text fade-in">
+                    <span class="eyebrow">Portofolio Pribadi</span>
+
+                    <h1>
+                        Halo, saya<br>
+                        <span>Juwita Pasoloran.</span>
+                    </h1>
+
+                    <p>
+                        Saya mahasiswa Informatika yang tertarik pada teknologi
+                        informasi dan pengembangan website. Melalui proses belajar,
+                        saya ingin terus menambah pengetahuan dan memahami bagaimana
+                        teknologi dapat dimanfaatkan dalam kehidupan sehari-hari.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#tentang" class="button button-primary">
+                            Kenali Saya
+                        </a>
+
+                        <a href="#kontak" class="button button-outline">
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-frame fade-in">
+                    <img
+                        src="foto-saya.jpeg"
+                        alt="Foto profil Juwita Pasoloran"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+
+                    <div class="photo-placeholder" style="display:none;">
+                        <strong>JP</strong>
+                        <span>Tambahkan foto profil<br>bernama foto-saya.jpeg</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TENTANG SAYA -->
+        <section id="tentang">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Tentang Saya</span>
+                    <h2>Mengenal Saya Lebih Dekat</h2>
+                    <p>
+                        Sedikit informasi tentang latar belakang pendidikan
+                        dan hal yang sedang saya pelajari.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <h3>Belajar, Bertumbuh, dan Berkembang</h3>
+
+                        <p>
+                            Perkenalkan, saya Juwita Pasoloran, mahasiswa Program
+                            Studi Informatika di Universitas Cokroaminoto Palopo.
+                            Saat ini saya sedang menjalani proses perkuliahan
+                            sekaligus memperluas pemahaman di bidang teknologi informasi.
+                        </p>
+
+                        <p>
+                            Saya memiliki ketertarikan pada pengembangan website,
+                            khususnya bagaimana sebuah halaman web disusun agar
+                            informasinya mudah dipahami dan tampilannya nyaman digunakan.
+                        </p>
+
+                        <p>
+                            Portofolio ini menjadi tempat untuk memperkenalkan diri,
+                            mendokumentasikan proses belajar, serta menyimpan hasil
+                            pekerjaan yang nantinya dapat ditambahkan seiring waktu.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Informasi Pribadi</h3>
+
+                        <div class="info-row">
+                            <strong>Nama</strong>
+                            <span>Juwita Pasoloran</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Pendidikan</strong>
+                            <span>Mahasiswa</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Program Studi</strong>
+                            <span>Informatika</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Universitas</strong>
+                            <span>Universitas Cokroaminoto Palopo</span>
+                        </div>
+
+                        <div class="info-row">
+                            <strong>Ketertarikan</strong>
+                            <span>Teknologi dan pengembangan website</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MINAT -->
+        <section class="interest-section" id="minat">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Minat Saya</span>
+                    <h2>Bidang yang Ingin Saya Dalami</h2>
+                    <p>
+                        Beberapa hal yang menarik perhatian saya selama
+                        mempelajari bidang Informatika.
+                    </p>
+                </div>
+
+                <div class="interest-grid">
+
+                    <article class="interest-card">
+                        <div class="interest-icon" aria-hidden="true">⌘</div>
+                        <h3>Teknologi Informasi</h3>
+                        <p>
+                            Tertarik memahami perkembangan teknologi dan bagaimana
+                            pemanfaatannya dapat membantu berbagai kebutuhan.
+                        </p>
+                    </article>
+
+                    <article class="interest-card">
+                        <div class="interest-icon" aria-hidden="true">⌘</div>
+                        <h3>Pengembangan Website</h3>
+                        <p>
+                            Ingin mempelajari proses pembuatan website, mulai dari
+                            penyusunan struktur halaman hingga tampilan yang responsif.
+                        </p>
+                    </article>
+
+                    <article class="interest-card">
+                        <div class="interest-icon" aria-hidden="true">↗</div>
+                        <h3>Pengembangan Diri</h3>
+                        <p>
+                            Berusaha menambah wawasan melalui materi perkuliahan,
+                            latihan, dan pengalaman belajar yang baru.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TUJUAN PORTOFOLIO -->
+        <section id="tujuan">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Tujuan Portofolio</span>
+                    <h2>Ruang untuk Mendokumentasikan Proses Belajar</h2>
+                </div>
+
+                <div class="purpose-box">
+                    <div class="purpose-mark" aria-hidden="true">✦</div>
+
+                    <div>
+                        <h3>Tugas Kuliah dan Portofolio Pribadi</h3>
+                        <p>
+                            Website ini dibuat sebagai bagian dari tugas kuliah
+                            sekaligus portofolio pribadi. Selain menjadi sarana
+                            latihan membuat dan memublikasikan website, halaman
+                            ini juga dapat dikembangkan untuk menampilkan hasil
+                            pembelajaran dan karya yang benar-benar saya kerjakan
+                            di kemudian hari.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="contact-section" id="kontak">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Kontak</span>
+                    <h2>Mari Terhubung</h2>
+                    <p>
+                        Untuk menghubungi saya, silakan gunakan alamat email
+                        yang tercantum di bawah ini.
+                    </p>
+                </div>
+
+                <!-- Ganti kedua bagian email contoh dengan email aktifmu -->
+                <a class="email-card" href="mailto:juwitapasoloran77@gmail.com">
+                    <span aria-hidden="true">✉</span>
+                    <span>emailkamu@example.com</span>
+                </a>
+
+                <p class="email-note">
+                    Alamat email ini masih contoh. Ganti dengan email aktifmu.
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="tahun"></span>
+                <span>Juwita Pasoloran</span>.
+                Portofolio Pribadi.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tahun footer otomatis
+        document.getElementById("tahun").textContent =
+            new Date().getFullYear();
+
+        // Menu navigasi perangkat mobile
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+            );
+
+            menuToggle.textContent = isOpen ? "×" : "☰";
+        });
+
+        // Tutup menu setelah tautan dipilih
+        document.querySelectorAll("#navLinks a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+                menuToggle.textContent = "☰";
+            });
+        });
+    </script>
+
+</body>
+</html>
